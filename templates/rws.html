@@ -1,0 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+<h1>WRITE YOUR REVIEW</h1>
+<form action="/process">
+	<input type="text" name="review" placeholder="Enter your Opinion">
+	<input type="submit" name="" value="submit">
+</form>
+
+<a href="/save">SAVE</a>

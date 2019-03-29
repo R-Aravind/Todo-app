@@ -1,0 +1,52 @@
+{% load static %}
+<head>
+
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+	<style>
+		#container {
+			width: 1500px;
+			height: 900px;
+			
+		}
+		#videoElement {
+			width: 1500px;
+			height: 900px;
+			
+		}
+	</style>
+
+</head>
+
+<body class="row masonry-grid">
+	
+
+		<div id="container">
+			<video autoplay="true" id="videoElement">
+			
+			</video>
+		</div>
+		
+		<div>
+			{% for i in main%}
+			<div class="card bg-light">
+			<div class="card-body">{{i.review}}<br></div>
+			{% endfor %}
+		</div>
+</body>
+
+
+
+<script>
+	var video = document.querySelector("#videoElement");
+
+	if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+</script>
